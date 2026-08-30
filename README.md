@@ -31,3 +31,5 @@ This means the GitHub `issue_write` tool cannot execute until a human explicitly
 ## Demo
 
 <!-- Add demo video link here -->
+
+Demo video and Qodo evidence links will be added here before submission.
