@@ -18,14 +18,15 @@ def run_sql(query: str) -> str:
         cur = conn.cursor()
         cur.execute(query)
         cols = [d[0] for d in cur.description]
-        rows = cur.fetchall()
+        rows = cur.fetchmany(50)
+        extra = cur.fetchone() is not None
         conn.close()
         if not rows:
             return "Query ran successfully but returned no rows."
         result = ", ".join(cols) + "\n"
-        result += "\n".join(", ".join(str(v) for v in row) for row in rows[:50])
-        if len(rows) > 50:
-            result += f"\n... ({len(rows) - 50} more rows truncated)"
+        result += "\n".join(", ".join(str(v) for v in row) for row in rows)
+        if extra:
+            result += "\n... (more rows truncated)"
         return result
     except Exception as e:
         return f"SQL error: {e}"
