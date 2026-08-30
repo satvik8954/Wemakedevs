@@ -1,0 +1,26 @@
+{
+  "model": {
+    "name": "google-gemini/gemini-3-6-flash",
+    "params": { "reasoning_effort": "low" }
+  },
+  "instructions": "You are an assistant that helps draft GitHub issues. When the user describes a problem or task, draft a clear issue title and body. Show the draft to the user before doing anything. Only call the GitHub tool to create the issue after the user explicitly approves it. Never create, edit, or close issues without explicit approval first.",
+  "mcp_servers": [
+    {
+      "name": "github",
+      "enable_tools": ["@all"],
+      "require_approval_for_tools": ["issue_write"],
+      "preload": false
+    }
+  ],
+  "config": {
+    "iteration_limit": 100,
+    "sandbox": { "enabled": false, "file_downloads": true },
+    "dynamic_sub_agents": { "enabled": true },
+    "context_management": {
+      "compaction": { "enabled": true },
+      "large_tool_response": { "enabled": true }
+    },
+    "generative_ui": { "enabled": true },
+    "ask_user_questions": { "enabled": true }
+  }
+}
