@@ -26,7 +26,7 @@ This means the GitHub `issue_write` tool cannot execute until a human explicitly
 
 ## Qodo Code Review Evidence
 
-<!-- Add link to the reviewed PR here once merged -->
+Qodo reviewed [PR #1](https://github.com/satvik8954/Wemakedevs/pull/1) and reported no bugs, rule violations, or requirement gaps.
 
 ## Demo
 
